@@ -1,5 +1,7 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import Notiflix from 'notiflix';
+import "notiflix/dist/notiflix-3.2.5.min.css";
 
 //styles
 const timer = document.querySelector('.timer');
@@ -31,7 +33,8 @@ const options = {
 
       if (selectedDates[0] <= options.defaultDate) {
         startBtn.setAttribute('disabled', true);
-        window.alert("Please, choose a date in the future");
+        Notiflix.Notify.warning("Please, choose a date in the future");
+        // window.alert("Please, choose a date in the future");
         return; 
       }
       startBtn.removeAttribute('disabled');
