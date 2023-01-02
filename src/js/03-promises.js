@@ -40,7 +40,7 @@ function onFormSubmit(event) {
   // let position = 0;
 
     for (let position = 1; position <= amount; position += 1) {
-      delay += step;
+      
       createPromise(position, delay)
         .then(({ position, delay }) => {
           Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
@@ -50,6 +50,8 @@ function onFormSubmit(event) {
           Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
           console.log(`❌ Rejected promise ${position} in ${delay}ms`);
         });
+      
+        delay += step;
     }
 
   // const id = setInterval(() => {
@@ -72,6 +74,7 @@ function onFormSubmit(event) {
   //   }
   // }, delay)
   
+  event.currentTarget.reset();
 }
 
 
